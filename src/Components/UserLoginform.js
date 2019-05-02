@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export class UserForm  extends React.Component
+export class UserLoginForm  extends React.Component
 {
 
     constructor ()
@@ -17,11 +17,19 @@ export class UserForm  extends React.Component
         return (
             <form className="container" onSubmit={this.handleFormSubmit}>
             <input value="Enter the name" />
-            <input value="age" />
+            <input value="Enter the Age" />
         <button
           title="Submit"
           color="#841584"
-         onClick={() => alert ('How can help you ?')}/>
+         onClick={() => fetch("http://localhost:3000/db.json").then (function(response)
+         {
+         return response.json();
+         }).then
+        (function(myJson)
+        {
+           // Console.log(JSON.stringify(myJson))
+        })
+         }>Submit</button>
             </form>
        );
      
